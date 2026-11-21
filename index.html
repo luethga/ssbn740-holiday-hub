@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Operation: Silent Night — holiday videos, Santa sonar, Christmas radio and submarine trivia for USS Rhode Island Blue Crew families.">
+  <title>USS Rhode Island (SSBN-740) Blue Crew — Operation: Silent Night</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter, Orbitron for naval telemetry, Mountains of Christmas for subtle festive accents -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Mountains+of+Christmas:wght@700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            naval: ['Orbitron', 'sans-serif'],
+            festive: ['"Mountains of Christmas"', 'cursive'],
+          },
+          colors: {
+            abyss: '#050b18',
+            deepsea: '#08142b',
+            sonar: '#00ff9d',
+            goldnavy: '#ffd166',
+            crimson: '#e63946',
+          },
+          animation: {
+            'float': 'float 4s ease-in-out infinite',
+            'twinkle': 'twinkle 1.8s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-7px)' },
+            },
+            twinkle: {
+              '0%': { opacity: 0.45, transform: 'scale(0.95)' },
+              '100%': { opacity: 1, transform: 'scale(1.1)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Deep Midnight Atlantic Blue Aesthetic */
+    body {
+      background: radial-gradient(ellipse at 50% -10%, #102a54 0%, #060e1f 48%, #030711 100%);
+      color: #f8fafc;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle Tactical Grid Overlay */
+    .sonar-grid {
+      background-image:
+        linear-gradient(to right, rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+        radial-gradient(ellipse at 50% -10%, #102a54 0%, #060e1f 48%, #030711 100%);
+      background-color: #030711;
+      background-size: 44px 44px, 44px 44px, 100% 100%;
+    }
+
+    /* Refined Naval Command Glass Panels */
+    .console-panel {
+      background: linear-gradient(160deg, rgba(13, 28, 54, 0.82), rgba(6, 13, 28, 0.92));
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    }
+
+    .sonar-border {
+      border: 1px solid rgba(16, 185, 129, 0.28);
+      box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.75), 0 0 36px rgba(16, 185, 129, 0.07);
+    }
+
+    /* Custom Range Sliders for Audio Scrubber & Volume */
+    input[type="range"].sonar-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      background: rgba(30, 41, 59, 0.9);
+      height: 5px;
+      border-radius: 999px;
+      outline: none;
+    }
+    input[type="range"].sonar-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: #10b981;
+      cursor: pointer;
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.65);
+    }
+    input[type="range"].sonar-slider::-moz-range-thumb {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: #10b981;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.65);
+    }
+
+    /* Refined Festive Light Accent Bar */
+    .light-bulb {
+      width: 7px;
+      height: 7px;
+      border-radius: 9999px;
+      animation: bulbGlow 2s infinite alternate;
+    }
+    .light-bulb:nth-child(4n+1) { background: #f87171; box-shadow: 0 0 8px rgba(248, 113, 113, 0.75); animation-delay: 0s; }
+    .light-bulb:nth-child(4n+2) { background: #34d399; box-shadow: 0 0 8px rgba(52, 211, 153, 0.75); animation-delay: 0.5s; }
+    .light-bulb:nth-child(4n+3) { background: #fbbf24; box-shadow: 0 0 8px rgba(251, 191, 36, 0.75); animation-delay: 1.0s; }
+    .light-bulb:nth-child(4n+4) { background: #60a5fa; box-shadow: 0 0 8px rgba(96, 165, 250, 0.75); animation-delay: 1.5s; }
+
+    @keyframes bulbGlow {
+      0% { opacity: 0.35; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1.1); }
+    }
+
+    /* Ambient Falling Snow Canvas */
+    #snow-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 40;
+    }
+
+    .sub-light {
+      animation: twinkle 1.4s infinite alternate;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 7px; }
+    ::-webkit-scrollbar-track { background: #040914; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #eab308; }
+  </style>
+</head>
+<body class="sonar-grid min-h-screen relative selection:bg-yellow-400 selection:text-slate-950">
+
+  <!-- Ambient Falling Snow Overlay -->
+  <canvas id="snow-canvas"></canvas>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2.5 max-w-sm pointer-events-none"></div>
+
+  <!-- Sleek Festive Light Accent Strip -->
+  <div class="w-full overflow-hidden bg-[#030711]/95 border-b border-white/5 py-1.5 px-6 flex justify-between items-center relative z-30">
+    <div id="light-strand" class="max-w-7xl mx-auto flex justify-between items-center w-full gap-2"></div>
+  </div>
+
+  <!-- Sticky Naval Command Header -->
+  <header class="sticky top-0 z-30 bg-[#050b18]/90 backdrop-blur-xl border-b border-white/10 px-4 sm:px-8 py-4">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      <!-- Clean Boat Title & Crew Subtitle -->
+      <div>
+        <h1 class="text-lg sm:text-2xl font-extrabold tracking-tight text-white">
+          USS RHODE ISLAND <span class="text-amber-400 font-naval font-bold">(SSBN-740)</span>
+        </h1>
+        <p class="text-[11px] font-naval uppercase tracking-widest text-sky-400 mt-0.5">
+          Blue Crew • SUBASE Kings Bay, GA
+        </p>
+      </div>
+
+      <!-- Clean Navigation Bar -->
+      <nav class="flex items-center gap-2">
+        <a href="#video-drop-section" class="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-emerald-300 border border-white/10 transition">
+          <i class="fa-solid fa-video text-[11px]"></i> <span>15s Video</span>
+        </a>
+        <a href="#tracker-section" class="hidden md:inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-slate-200 border border-white/10 transition">
+          <i class="fa-solid fa-satellite-dish text-[11px] text-emerald-400"></i> <span>Santa Sonar</span>
+        </a>
+        <a href="#radio-section" class="hidden md:inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-slate-200 border border-white/10 transition">
+          <i class="fa-solid fa-radio text-[11px] text-amber-400"></i> <span>North Pole FM</span>
+        </a>
+        <a href="#lounge-section" class="hidden md:inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-slate-200 border border-white/10 transition">
+          <i class="fa-solid fa-award text-[11px] text-sky-400"></i> <span>Mess &amp; Trivia</span>
+        </a>
+        <button id="nav-deck-btn" onclick="triggerRendezvousSequence()" class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/90 border border-amber-500/40 text-amber-300 text-xs font-naval font-bold transition shadow-md">
+          <i id="nav-deck-icon" class="fa-solid fa-lock text-[11px]"></i>
+          <span id="nav-deck-label">0740 LOCKED</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 space-y-12 relative z-20">
+
+    <!-- ===================================================================
+         1. HERO & TORPEDO-CONSOLE CHRISTMAS COUNTDOWN
+         =================================================================== -->
+    <section class="console-panel rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <!-- Left Hero Copy + Breaking News Santa Search Video Feed -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-500/10 border border-sky-400/25 text-sky-300 text-[11px] font-naval uppercase tracking-wider">
+            <i class="fa-solid fa-sleigh text-amber-400"></i> Blue Crew Family Holiday Hub • Kings Bay &amp; Atlantic Patrol
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-[1.12]">
+            Merry Christmas to the <span class="text-sky-400">Blue Crew</span> &amp; Families of <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500">SSBN-740</span>
+          </h2>
+          <p class="text-slate-300/90 text-sm sm:text-base leading-relaxed max-w-2xl">
+            From Naval Submarine Base Kings Bay, Georgia to the silent depths of the North Atlantic, this is the Blue Crew family holiday command post. Follow Santa’s search on <strong class="text-emerald-400 font-semibold">Operation: Silent Night</strong>, enjoy holiday classics on <strong class="text-amber-300 font-semibold">W-SSBN North Pole FM</strong>, and watch Santa touch down aft of the sail at <strong class="text-white font-semibold">0740 on Christmas morning</strong>.
+          </p>
+
+          <div class="bg-[#030813]/95 border border-red-500/35 rounded-2xl p-4 shadow-2xl space-y-3">
+            <div class="flex items-center gap-3 font-naval text-xs"><span class="px-2 py-1 rounded bg-red-600 text-white font-bold">BREAKING NEWS</span><span>NORTH POLE COMMAND FEED</span></div>
+            <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black">
+              <iframe title="Santa searches for USS Rhode Island — news report" src="https://drive.google.com/file/d/1x-70xgsHpBYqwyfORa6ZoxtPI3_0Vdi7/preview" allow="autoplay; fullscreen" allowfullscreen class="absolute inset-0 w-full h-full border-0"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero: Torpedo-Console Christmas Countdown Timer -->
+        <div class="lg:col-span-5">
+          <div class="bg-[#030813]/95 border border-amber-400/30 rounded-2xl p-6 sm:p-7 shadow-2xl space-y-6">
+            <div class="flex items-center justify-between border-b border-white/10 pb-3.5">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-stopwatch text-amber-400 text-base"></i>
+                <span class="font-naval text-xs font-bold tracking-wider text-amber-300">TORPEDO CONSOLE CLOCK</span>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-md bg-sky-500/15 text-sky-300 font-naval text-[10px] border border-sky-500/25">
+                BLUE CREW READY
+              </span>
+            </div>
+
+            <div>
+              <p class="text-[11px] text-slate-400 font-naval uppercase tracking-widest text-center mb-3.5">
+                Countdown to 0740 Christmas Morning • Eastern
+              </p>
+
+              <!-- Digital Readout Boxes -->
+              <div class="grid grid-cols-4 gap-2.5 text-center">
+                <div class="bg-slate-900/90 border border-white/10 rounded-xl p-3">
+                  <div id="cd-days" class="font-naval text-2xl sm:text-3xl font-black text-emerald-400">--</div>
+                  <div class="text-[10px] font-naval text-slate-400 mt-1">DAYS</div>
+                </div>
+                <div class="bg-slate-900/90 border border-white/10 rounded-xl p-3">
+                  <div id="cd-hours" class="font-naval text-2xl sm:text-3xl font-black text-emerald-400">--</div>
+                  <div class="text-[10px] font-naval text-slate-400 mt-1">HRS</div>
+                </div>
+                <div class="bg-slate-900/90 border border-white/10 rounded-xl p-3">
+                  <div id="cd-mins" class="font-naval text-2xl sm:text-3xl font-black text-emerald-400">--</div>
+                  <div class="text-[10px] font-naval text-slate-400 mt-1">MIN</div>
+                </div>
+                <div class="bg-slate-900/90 border border-red-500/30 rounded-xl p-3">
+                  <div id="cd-secs" class="font-naval text-2xl sm:text-3xl font-black text-red-400">--</div>
+                  <div class="text-[10px] font-naval text-slate-400 mt-1">SEC</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submarine Telemetry Gauges -->
+            <div class="space-y-2.5 text-xs font-naval border-t border-white/10 pt-4">
+              <div class="flex justify-between">
+                <span class="text-slate-400">HOMEPORT:</span>
+                <span class="text-white font-semibold">SUBASE KINGS BAY, GA</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">BLUE CREW MORALE:</span>
+                <span class="text-sky-300 font-semibold">100% FULL AHEAD</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">SLEIGH-1 STATUS:</span>
+                <span id="header-lock-status" class="text-emerald-400 font-semibold">NORTH POLE PREP</span>
+              </div>
+            </div>
+
+            <!-- CTA Button to Launch Deck Rendezvous Video (Time-Locked until 0740 Dec 25) -->
+            <button id="hero-deck-btn" onclick="triggerRendezvousSequence()" class="w-full py-3.5 px-4 rounded-xl bg-slate-900/95 border border-amber-500/40 text-amber-300 font-naval font-bold text-xs tracking-wider uppercase shadow-lg transition flex items-center justify-center gap-2">
+              <i id="hero-deck-icon" class="fa-solid fa-lock text-amber-400"></i>
+              <span id="hero-deck-label">VIDEO UNLOCKS AT 0740 DEC 25</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         1B. TOP STANDALONE PRIVATE 15-SEC HOLIDAY VIDEO GREETING DROP-BOX
+         =================================================================== -->
+    <section id="video-drop-section" class="console-panel rounded-3xl p-6 sm:p-8 border border-emerald-500/25 relative overflow-hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+        <!-- Left Info -->
+        <div class="lg:col-span-5 space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-naval text-[10px] font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-lock"></i> PRIVATE • BLUE CREW COMMAND EYES ONLY
+          </div>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
+            Send a <span class="text-emerald-400">15-Second</span> Holiday Video Wish
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300/90 leading-relaxed">
+            Record a quick holiday greeting (<strong class="text-white">15 seconds max</strong>) for your sailor or the whole Blue Crew. Clips go directly to the organizer’s <strong class="text-emerald-300">private Google Drive folder</strong> for the Blue Crew holiday reel. Other visitors cannot browse submitted videos.
+          </p>
+        </div>
+
+        <div class="lg:col-span-7 bg-[#030813]/95 border border-white/10 rounded-2xl p-2 sm:p-3">
+          <iframe id="greeting-upload-frame" title="Send a private holiday video greeting" src="https://script.google.com/macros/s/AKfycbyrcmSYYIvab4wSxUGWVtXYUQH_fhPaHfa6hjrlhFFPeeMuWAZnO1muo_K8Fa-IGleo/exec" class="w-full h-[620px] sm:h-[500px] border-0 rounded-xl" loading="lazy"></iframe>
+          <p class="text-sm text-slate-400 px-4 pb-3">Having trouble with the form? <a href="https://script.google.com/macros/s/AKfycbyrcmSYYIvab4wSxUGWVtXYUQH_fhPaHfa6hjrlhFFPeeMuWAZnO1muo_K8Fa-IGleo/exec" target="_blank" rel="noopener" class="text-emerald-300 underline">Open the upload form in a new tab</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         2. OPERATION: SILENT NIGHT — INTERACTIVE SANTA SONAR TRACKER
+         =================================================================== -->
+    <section id="tracker-section" class="console-panel sonar-border rounded-3xl p-6 sm:p-8 space-y-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-5">
+        <div>
+          <div class="flex items-center gap-2 text-emerald-400 font-naval text-[11px] tracking-widest uppercase">
+            <i class="fa-solid fa-satellite-dish"></i> NORAD-SUBLANT JOINT TRACKING NETWORK
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mt-1">
+            Operation: <span class="text-emerald-400">Silent Night</span> — Santa Sonar Tracker
+          </h3>
+        </div>
+
+        <!-- Tracker Action Buttons -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="pingSonar()" class="px-3.5 py-2.5 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-400/40 text-emerald-300 font-naval text-xs font-bold transition flex items-center gap-2">
+            <i class="fa-solid fa-bullseye"></i> Ping Sonar
+          </button>
+          <button onclick="toggleSearchPreviewMode()" id="preview-search-btn" class="px-3.5 py-2.5 rounded-xl bg-sky-500/15 hover:bg-sky-500/25 border border-sky-400/40 text-sky-300 font-naval text-xs font-bold transition flex items-center gap-2" title="Preview how the radar looks when Santa is actively searching on Christmas">
+            <i class="fa-solid fa-magnifying-glass-location"></i> <span id="preview-search-label">Preview Search</span>
+          </button>
+          <button id="tracker-deck-btn" onclick="triggerRendezvousSequence()" class="px-4 py-2.5 rounded-xl bg-slate-900 border border-amber-500/40 text-amber-300 font-naval text-xs font-bold shadow-md transition flex items-center gap-2">
+            <i id="tracker-deck-icon" class="fa-solid fa-lock"></i> <span id="tracker-deck-label">0740 Feed Locked</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Tactical Atlantic Sonar Canvas -->
+        <div class="lg:col-span-8 relative rounded-2xl overflow-hidden border border-emerald-500/30 bg-[#020814] shadow-inner min-h-[390px] sm:min-h-[450px]">
+          <canvas id="tracker-canvas" class="w-full h-full block"></canvas>
+
+          <!-- Top-Left HUD Overlay -->
+          <div class="absolute top-3.5 left-3.5 bg-[#050b18]/90 backdrop-blur-md border border-white/10 rounded-xl p-3 text-[11px] font-naval pointer-events-none space-y-1">
+            <div id="hud-contact-title" class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span> SLEIGH-1: NORTH POLE PREP
+            </div>
+            <div class="text-slate-300">LAT: <span id="hud-lat" class="text-white">90.00° N</span> | LON: <span id="hud-lon" class="text-white">0.00° W</span></div>
+            <div class="text-slate-300">MODE: <span id="hud-bearing" class="text-amber-300">WORKSHOP STAGING</span></div>
+          </div>
+
+          <!-- Bottom Legend Bar -->
+          <div class="absolute bottom-3.5 left-3.5 right-3.5 flex flex-wrap justify-between items-center gap-2 bg-[#050b18]/90 backdrop-blur-md border border-white/10 rounded-xl px-4 py-2 text-[11px] font-naval">
+            <div class="flex flex-wrap items-center gap-4">
+              <span class="flex items-center gap-1.5 text-red-400"><i class="fa-solid fa-sleigh"></i> Sleigh-1 (Santa)</span>
+              <span class="flex items-center gap-1.5 text-emerald-400"><i class="fa-solid fa-water"></i> North Atlantic Search Grid</span>
+            </div>
+            <span id="auto-trigger-hint" class="text-amber-300 hidden sm:inline">Video unlocks at 0740 on 25 Dec</span>
+          </div>
+        </div>
+
+        <!-- Right Live Telemetry & Mission Phase Readout -->
+        <div class="lg:col-span-4 flex flex-col justify-between space-y-4">
+          <div class="bg-[#030813]/95 border border-white/10 rounded-2xl p-5 space-y-3.5">
+            <div class="flex items-center justify-between">
+              <span class="font-naval text-xs font-bold text-amber-300">LIVE SLEIGH TELEMETRY</span>
+              <span id="distance-badge" class="px-2.5 py-0.5 rounded-md bg-amber-500/15 text-amber-300 font-naval text-[10px]">PREP PHASE</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2.5 pt-1 font-naval text-xs">
+              <div class="bg-slate-900/90 p-3 rounded-xl border border-white/5">
+                <div class="text-[10px] text-slate-400">SLEIGH STATUS</div>
+                <div id="telemetry-speed" class="text-white font-bold mt-0.5">STAGED AT POLE</div>
+              </div>
+              <div class="bg-slate-900/90 p-3 rounded-xl border border-white/5">
+                <div class="text-[10px] text-slate-400">SSBN-740 LOCATION</div>
+                <div id="telemetry-depth" class="text-emerald-400 font-bold mt-0.5">CLASSIFIED (SILENT)</div>
+              </div>
+              <div class="bg-slate-900/90 p-3 rounded-xl border border-white/5">
+                <div class="text-[10px] text-slate-400">SEARCH HEADING</div>
+                <div id="telemetry-bearing" class="text-amber-300 font-bold mt-0.5">STANDBY</div>
+              </div>
+              <div class="bg-slate-900/90 p-3 rounded-xl border border-white/5">
+                <div class="text-[10px] text-slate-400">REINDEER TEAM</div>
+                <div id="telemetry-reindeer" class="text-red-400 font-bold mt-0.5">RESTING &amp; FED</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Clean Mission Phase Card -->
+          <div id="mission-phase-card" class="bg-[#030813]/95 border border-white/10 rounded-2xl p-5 space-y-4 flex-1 flex flex-col justify-between">
+            <div class="space-y-2">
+              <div id="phase-card-header" class="font-naval text-xs font-bold text-amber-400 uppercase tracking-wider">
+                <i class="fa-solid fa-gifts mr-1.5"></i> PHASE 1: NORTH POLE PREPARATION
+              </div>
+              <p id="phase-card-body" class="text-xs sm:text-sm text-slate-300/90 leading-relaxed">
+                Santa and the workshop elves are loading waterproofed gift sacks, checking sleigh runners, and calibrating Rudolph’s sonar-sync nose. Launch for the North Atlantic begins on Christmas Eve!
+              </p>
+            </div>
+            <div class="bg-slate-900/80 border border-white/5 rounded-xl p-3.5 text-[11px] font-naval text-slate-400 space-y-1.5">
+              <div class="flex justify-between">
+                <span>PRE-DEC 24:</span>
+                <span class="text-amber-300">NORTH POLE PREP</span>
+              </div>
+              <div class="flex justify-between">
+                <span>DEC 24 – DEC 25:</span>
+                <span class="text-emerald-400">OPEN-OCEAN BOAT SEARCH</span>
+              </div>
+              <div class="flex justify-between">
+                <span>25 DEC AT 0740:</span>
+                <span class="text-red-400">DECK LANDING FEED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         3. W-SSBN NORTH POLE FM (REAL MP3 RADIO) & HOLIDAY MESS DECKS
+         =================================================================== -->
+    <section id="radio-section" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- Left 6 Cols: W-SSBN North Pole FM (Real Free MP3 Player — Zero Synth) -->
+      <div class="lg:col-span-6 console-panel rounded-3xl p-6 sm:p-7 space-y-5 flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] font-naval text-emerald-400 tracking-widest uppercase">VLF HOLIDAY BROADCAST</span>
+                <span id="stream-status-pill" class="px-2 py-0.5 rounded-md bg-white/5 text-slate-300 font-naval text-[9px] uppercase">STANDBY • REAL MP3</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight mt-1">W-SSBN North Pole FM</h3>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <!-- Animated Frequency Visualizer Bars -->
+              <div id="radio-equalizer" class="flex items-end gap-1 h-6 pl-1">
+                <span class="w-1 bg-emerald-400 h-2 rounded-full transition-all duration-150"></span>
+                <span class="w-1 bg-amber-400 h-3 rounded-full transition-all duration-150"></span>
+                <span class="w-1 bg-red-400 h-2 rounded-full transition-all duration-150"></span>
+                <span class="w-1 bg-emerald-400 h-4 rounded-full transition-all duration-150"></span>
+                <span class="w-1 bg-amber-400 h-2 rounded-full transition-all duration-150"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Real HTML5 Audio Element -->
+          <audio id="holiday-audio-player" preload="none"></audio>
+
+          <!-- Now Playing Console -->
+          <div class="bg-[#030813]/95 border border-white/10 rounded-2xl p-4 space-y-3.5">
+            <div class="flex items-center gap-3.5 min-w-0">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600 via-red-500 to-amber-500 flex items-center justify-center text-white shrink-0 shadow-lg">
+                <i class="fa-solid fa-music text-lg"></i>
+              </div>
+              <div class="truncate flex-1">
+                <div class="flex items-center gap-2">
+                  <span id="audio-source-badge" class="px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-300 font-naval text-[9px] uppercase">CC-BY MP3</span>
+                  <div id="current-track-title" class="text-sm sm:text-base font-bold text-white truncate">Jingle Bells</div>
+                </div>
+                <div id="current-track-artist" class="text-xs text-slate-400 truncate mt-0.5">Kevin MacLeod • Royalty-Free Holiday Classics</div>
+              </div>
+            </div>
+
+            <!-- Scrubbable Progress Bar -->
+            <div class="space-y-1">
+              <input type="range" id="audio-progress-slider" min="0" max="100" value="0" oninput="seekAudio(this.value)" class="w-full sonar-slider" />
+              <div class="flex justify-between text-[10px] font-naval text-slate-400">
+                <span id="audio-current-time">0:00</span>
+                <span id="audio-duration">0:00</span>
+              </div>
+            </div>
+
+            <!-- Transport & Volume Controls -->
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+              <div class="flex items-center gap-2.5">
+                <button onclick="prevTrack()" class="w-9 h-9 rounded-full bg-slate-800/90 hover:bg-slate-700 text-slate-200 flex items-center justify-center transition" title="Previous Track">
+                  <i class="fa-solid fa-backward-step text-xs"></i>
+                </button>
+                <button id="radio-play-btn" onclick="toggleRadioPlay()" class="w-11 h-11 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center shrink-0 transition shadow-lg shadow-emerald-500/20" title="Play / Pause">
+                  <i id="radio-play-icon" class="fa-solid fa-play ml-0.5"></i>
+                </button>
+                <button onclick="nextTrack()" class="w-9 h-9 rounded-full bg-slate-800/90 hover:bg-slate-700 text-slate-200 flex items-center justify-center transition" title="Next Track">
+                  <i class="fa-solid fa-forward-step text-xs"></i>
+                </button>
+              </div>
+
+              <!-- Volume Control -->
+              <div class="flex items-center gap-2 bg-slate-900/90 px-3 py-2 rounded-xl border border-white/10">
+                <i id="volume-icon" class="fa-solid fa-volume-high text-emerald-400 text-xs"></i>
+                <input type="range" id="audio-volume-slider" min="0" max="1" step="0.05" value="0.85" oninput="setAudioVolume(this.value)" class="w-24 sonar-slider" />
+              </div>
+            </div>
+          </div>
+
+          <!-- 5-Track Clickable Playlist -->
+          <div id="radio-playlist-container" class="space-y-1.5 text-xs max-h-56 overflow-y-auto pr-1"></div>
+        </div>
+
+        <div class="text-[11px] text-slate-400 border-t border-white/10 pt-3 flex items-center justify-between">
+          <span>Music: Kevin MacLeod (incompetech.com) • CC BY 4.0</span>
+          <span class="text-emerald-400 font-naval">100% REAL MP3</span>
+        </div>
+      </div>
+
+      <!-- Right 6 Cols: Holiday Mess Decks, Patrol Traditions & 15-Question Submarine Trivia Quiz -->
+      <div id="lounge-section" class="lg:col-span-6 console-panel rounded-3xl p-6 sm:p-7 space-y-5 flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
+            <div>
+              <span class="text-[10px] font-naval text-amber-400 tracking-widest uppercase">BLUE CREW &amp; FAMILY LOUNGE</span>
+              <h3 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight mt-1">Holiday Mess Decks &amp; Traditions</h3>
+            </div>
+            <!-- Interactive Category Tabs -->
+            <div class="flex gap-1 bg-[#030813] p-1 rounded-xl border border-white/10">
+              <button onclick="switchMessTab('feast')" id="tab-feast" class="px-2.5 py-1.5 rounded-lg text-xs font-bold bg-amber-400 text-slate-950 transition">Midrats Feast</button>
+              <button onclick="switchMessTab('patrol')" id="tab-patrol" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">Traditions</button>
+              <button onclick="switchMessTab('kingsbay')" id="tab-kingsbay" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">Kings Bay</button>
+            </div>
+          </div>
+
+          <!-- Dynamic Mess Deck Info Card -->
+          <div id="mess-tab-content" class="min-h-[125px]"></div>
+        </div>
+
+        <!-- Interactive 15-Question Submarine & Christmas Trivia Quiz -->
+        <div class="bg-[#030813]/95 border border-amber-400/25 rounded-2xl p-4 sm:p-5 space-y-3.5">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="font-naval text-xs font-bold text-amber-300 flex items-center gap-1.5">
+                <i class="fa-solid fa-award"></i> SUBMARINE &amp; CHRISTMAS TRIVIA
+              </span>
+              <span id="quiz-category-badge" class="px-2 py-0.5 rounded bg-sky-500/15 text-sky-300 border border-sky-500/25 font-naval text-[9px] uppercase">
+                SSBN-740 HERITAGE
+              </span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span id="quiz-rank-badge" class="px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/25 font-naval text-[10px]">
+                QUAL: SEAMAN
+              </span>
+              <span id="quiz-score-badge" class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 font-naval text-[10px]">
+                SCORE: 0 / 15
+              </span>
+            </div>
+          </div>
+          <p id="quiz-question" class="text-xs sm:text-sm font-semibold text-white leading-relaxed"></p>
+          <div id="quiz-options" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></div>
+          <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-white/10">
+            <span id="quiz-feedback" class="text-xs text-slate-400 flex-1">Select an answer to earn your Dolphin Badge!</span>
+            <div class="flex items-center gap-2 shrink-0">
+              <button onclick="resetQuiz()" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-white/10 text-slate-300 font-naval text-[10px] transition" title="Restart Trivia">
+                <i class="fa-solid fa-rotate-left"></i>
+              </button>
+              <button onclick="nextQuizQuestion()" class="px-3 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/40 text-amber-300 font-naval text-[10px] font-bold transition">
+                Next Question <i class="fa-solid fa-arrow-right ml-1"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="max-w-7xl mx-auto px-4 sm:px-8 py-10 mt-10 border-t border-white/10 text-center text-xs text-slate-400 space-y-3 relative z-20">
+    <div class="font-naval text-amber-300/90 tracking-widest uppercase">
+      USS RHODE ISLAND (SSBN-740) • BLUE CREW • SUBASE KINGS BAY, GEORGIA
+    </div>
+    <p class="text-slate-400">Silent Service • Blue Crew • One Family — Merry Christmas to All. This family holiday project is for entertainment; the Santa tracker is fictional.</p>
+    <!-- Discreet COB / Admin Test Override Toggle & One-Click Launch ZIP Export -->
+    <div class="pt-2 flex flex-wrap justify-center items-center gap-2.5">
+      <button id="cob-override-btn" onclick="toggleCobAdminOverride()" class="px-3.5 py-1.5 rounded-full bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 text-[10px] font-naval text-slate-500 hover:text-slate-300 transition flex items-center gap-1.5" title="Preview the Christmas countdown display">
+        <i class="fa-solid fa-key text-[9px]"></i>
+        <span id="cob-override-label">Christmas Preview: OFF (Strict 0740 Dec 25 Lock)</span>
+      </button>
+<a href="https://github.com/luethga/ssbn740-holiday-hub" target="_blank" rel="noopener" class="text-sm text-emerald-300 underline px-3">Site project</a>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       MODAL: PERISCOPE CINEMA & SANTA DECK RENDEZVOUS (AFT OF SAIL + HATCH)
+       ===================================================================== -->
+  <div id="rendezvous-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-[#02050c]/92 backdrop-blur-lg p-3 sm:p-6">
+    <div class="console-panel border-2 border-yellow-400/60 rounded-3xl max-w-5xl w-full overflow-hidden shadow-2xl flex flex-col">
+      <!-- Top Periscope Cinema Bar -->
+      <div class="bg-[#030812] px-5 py-3.5 border-b border-slate-800 flex flex-wrap items-center justify-between gap-2">
+        <div class="flex items-center gap-3">
+          <span class="px-2.5 py-0.5 rounded bg-red-600 text-white font-naval text-[10px] font-bold tracking-widest animate-pulse">
+            <i class="fa-solid fa-circle text-[8px] mr-1"></i> PERISCOPE OPTICS #2
+          </span>
+          <h4 class="font-naval text-xs sm:text-sm font-bold text-yellow-400">
+            SSBN-740 BLUE CREW DECK RENDEZVOUS: SANTA LANDING AFT OF THE SAIL
+          </h4>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="closeRendezvousModal()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-red-600 text-white flex items-center justify-center transition" title="Close Cinema">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Periscope Cinema Viewport -->
+      <div class="relative w-full aspect-video bg-[#020712] overflow-hidden">
+        <!-- Built-In Animated Canvas Sequence -->
+        <canvas id="cinema-canvas" class="w-full h-full block"></canvas>
+
+        <!-- Custom HTML5 Video Slot for User's AI Video -->
+        <iframe id="landing-video-frame" title="Santa’s Christmas landing video" data-src="https://script.google.com/macros/s/AKfycbyrcmSYYIvab4wSxUGWVtXYUQH_fhPaHfa6hjrlhFFPeeMuWAZnO1muo_K8Fa-IGleo/exec?view=landing" allow="autoplay; fullscreen" allowfullscreen class="hidden absolute inset-0 w-full h-full border-0"></iframe>
+
+        <!-- Periscope Crosshair Reticle Overlay (Shown over built-in animation) -->
+        <div id="periscope-reticle" class="absolute inset-0 pointer-events-none border-[12px] border-slate-950/60 flex items-center justify-center">
+          <div class="w-full h-px bg-emerald-400/15"></div>
+          <div class="h-full w-px bg-emerald-400/15 absolute"></div>
+        </div>
+
+        <!-- Director Subtitles -->
+        <div id="cinema-subtitle-wrapper" class="absolute bottom-4 left-4 right-4 flex flex-col items-center pointer-events-none">
+          <div id="cinema-subtitle" class="bg-[#050b18]/90 backdrop-blur-md border border-yellow-500/40 px-4 py-2 rounded-xl text-center text-xs sm:text-sm font-semibold text-white shadow-lg max-w-2xl">
+            "North Atlantic Sector — USS Rhode Island surfaces beneath the Northern Lights..."
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Playback Bar -->
+      <div class="bg-[#030812] px-5 py-3.5 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <button onclick="triggerRendezvousSequence()" class="px-3.5 py-1.5 rounded-xl bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-naval text-xs font-bold transition flex items-center gap-1.5">
+            <i class="fa-solid fa-rotate-right"></i> Replay Rendezvous
+          </button>
+          <button onclick="launchFireworksBurst()" class="px-3.5 py-1.5 rounded-xl bg-emerald-600/30 hover:bg-emerald-600/50 border border-emerald-400/40 text-emerald-300 font-naval text-xs font-bold transition flex items-center gap-1.5">
+            <i class="fa-solid fa-sparkles"></i> Fire Salute Flares
+          </button>
+        </div>
+        <div class="text-xs font-naval text-slate-400">
+          STATUS: <span id="cinema-phase-label" class="text-yellow-400 font-bold">1/4 SURFACING</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       JAVASCRIPT: SNOW, TRACKER, CINEMA, REAL MP3 RADIO, VIDEO DROP & TRIVIA
+       ===================================================================== -->
+  <script>
+    // ---------------------------------------------------------------------
+    // 0. TOAST NOTIFICATIONS & LIGHT STRAND INITIALIZATION
+    // ---------------------------------------------------------------------
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+
+      const styles = {
+        info: 'bg-[#08142b]/95 border-emerald-500/50 text-emerald-200',
+        success: 'bg-[#08142b]/95 border-yellow-400/60 text-yellow-200',
+        alert: 'bg-red-950/95 border-red-500/70 text-red-100'
+      };
+      const icons = {
+        info: 'fa-solid fa-satellite-dish text-emerald-400',
+        success: 'fa-solid fa-circle-check text-yellow-400',
+        alert: 'fa-solid fa-shield-halved text-red-400'
+      };
+
+      const toast = document.createElement('div');
+      toast.className = `pointer-events-auto border rounded-2xl px-4 py-3 shadow-2xl backdrop-blur-md text-xs font-medium flex items-start gap-2.5 transition-all duration-300 ${styles[type] || styles.info}`;
+      toast.innerHTML = `
+        <i class="${icons[type] || icons.info} mt-0.5 shrink-0"></i>
+        <span class="leading-relaxed">${message}</span>
+      `;
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(8px)';
+        setTimeout(() => toast.remove(), 300);
+      }, 4500);
+    }
+
+    // Build Top Christmas Light Garland
+    (function initLightStrand() {
+      const strand = document.getElementById('light-strand');
+      if (!strand) return;
+      const bulbCount = window.innerWidth < 640 ? 18 : 38;
+      strand.innerHTML = Array.from({ length: bulbCount }, () => '<span class="light-bulb"></span>').join('');
+    })();
+
+    // ---------------------------------------------------------------------
+    // 1. AMBIENT FALLING SNOW CANVAS
+    // ---------------------------------------------------------------------
+    (function initSnow() {
+      const canvas = document.getElementById('snow-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let flakes = [];
+
+      function resizeSnow() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeSnow();
+      window.addEventListener('resize', resizeSnow);
+
+      for (let i = 0; i < 65; i++) {
+        flakes.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 2.4 + 0.8,
+          d: Math.random() * 0.8 + 0.3,
+          drift: (Math.random() - 0.5) * 0.4
+        });
+      }
+
+      function drawSnow() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.72)';
+        ctx.beginPath();
+        for (const f of flakes) {
+          ctx.moveTo(f.x, f.y);
+          ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+        }
+        ctx.fill();
+
+        for (const f of flakes) {
+          f.y += f.d;
+          f.x += f.drift;
+          if (f.y > canvas.height) {
+            f.y = -5;
+            f.x = Math.random() * canvas.width;
+          }
+          if (f.x > canvas.width) f.x = 0;
+          if (f.x < 0) f.x = canvas.width;
+        }
+        requestAnimationFrame(drawSnow);
+      }
+      drawSnow();
+    })();
+
+    // ---------------------------------------------------------------------
+    // 2. 0740 CHRISTMAS MORNING TIME-LOCK & COUNTDOWN TIMER
+    // ---------------------------------------------------------------------
+    const urlParams = new URLSearchParams(window.location.search);
+    let cobAdminOverride = false;
+    let searchPreviewMode = false;
+
+    function easternParts() {
+      return Object.fromEntries(new Intl.DateTimeFormat('en-US', {timeZone:'America/New_York',year:'numeric',month:'numeric',day:'numeric'}).formatToParts(new Date()).filter(p => p.type !== 'literal').map(p => [p.type, Number(p.value)]));
+    }
+
+    function getTargetChristmas0740() {
+      const now = new Date();
+      let year = easternParts().year;
+      let target = new Date(`${year}-12-25T07:40:00-05:00`);
+      const endOfChristmas = new Date(`${year}-12-26T23:59:59.999-05:00`);
+      if (now > endOfChristmas) {
+        target = new Date(`${year + 1}-12-25T07:40:00-05:00`);
+      }
+      return target;
+    }
+
+    function isDeckFeedUnlocked() {
+      if (cobAdminOverride) return true;
+      const now = new Date();
+      const target = getTargetChristmas0740();
+      return now >= target;
+    }
+
+    function isChristmasSearchWindow() {
+      if (searchPreviewMode || cobAdminOverride) return true;
+      const date = easternParts();
+      return date.month === 12 && (date.day === 24 || date.day === 25);
+    }
+
+    function updateCountdownAndLocks() {
+      const now = new Date();
+      const target = getTargetChristmas0740();
+      const unlocked = isDeckFeedUnlocked();
+      const diff = Math.max(0, target - now);
+
+      const days = unlocked ? 0 : Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = unlocked ? 0 : Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = unlocked ? 0 : Math.floor((diff / 1000 / 60) % 60);
+      const secs = unlocked ? 0 : Math.floor((diff / 1000) % 60);
+
+      const pad = n => String(n).padStart(2, '0');
+      const dEl = document.getElementById('cd-days');
+      const hEl = document.getElementById('cd-hours');
+      const mEl = document.getElementById('cd-mins');
+      const sEl = document.getElementById('cd-secs');
+      if (dEl) dEl.textContent = pad(days);
+      if (hEl) hEl.textContent = pad(hours);
+      if (mEl) mEl.textContent = pad(mins);
+      if (sEl) sEl.textContent = pad(secs);
+
+      const navBtn = document.getElementById('nav-deck-btn');
+      const navIcon = document.getElementById('nav-deck-icon');
+      const navLabel = document.getElementById('nav-deck-label');
+
+      const heroBtn = document.getElementById('hero-deck-btn');
+      const heroIcon = document.getElementById('hero-deck-icon');
+      const heroLabel = document.getElementById('hero-deck-label');
+
+      const trkBtn = document.getElementById('tracker-deck-btn');
+      const trkIcon = document.getElementById('tracker-deck-icon');
+      const trkLabel = document.getElementById('tracker-deck-label');
+
+      if (unlocked) {
+        if (navBtn) navBtn.className = 'flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-red-600 to-amber-500 text-white text-xs font-naval font-bold transition shadow-lg animate-pulse';
+        if (navIcon) navIcon.className = 'fa-solid fa-video';
+        if (navLabel) navLabel.textContent = '0740 UNLOCKED • WATCH';
+
+        if (heroBtn) heroBtn.className = 'w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-red-600 via-red-500 to-amber-500 hover:from-red-500 hover:to-amber-400 text-white font-naval font-bold text-xs tracking-wider uppercase shadow-lg shadow-red-600/30 transition flex items-center justify-center gap-2';
+        if (heroIcon) heroIcon.className = 'fa-solid fa-film text-yellow-200';
+        if (heroLabel) heroLabel.textContent = '0740 UNLOCKED • WATCH SANTA LAND';
+
+        if (trkBtn) trkBtn.className = 'px-4 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-amber-500 hover:from-red-500 hover:to-amber-400 text-white font-naval text-xs font-bold shadow-lg transition flex items-center gap-2';
+        if (trkIcon) trkIcon.className = 'fa-solid fa-video';
+        if (trkLabel) trkLabel.textContent = 'Watch Deck Landing';
+      } else {
+        if (navBtn) navBtn.className = 'flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900 border border-amber-500/45 text-amber-300 text-xs font-naval font-bold transition shadow-lg';
+        if (navIcon) navIcon.className = 'fa-solid fa-lock';
+        if (navLabel) navLabel.textContent = '0740 LOCKED';
+
+        if (heroBtn) heroBtn.className = 'w-full py-3.5 px-4 rounded-xl bg-slate-900/95 border border-amber-500/50 text-amber-300 font-naval font-bold text-xs tracking-wider uppercase shadow-lg transition flex items-center justify-center gap-2';
+        if (heroIcon) heroIcon.className = 'fa-solid fa-lock text-amber-400';
+        if (heroLabel) heroLabel.textContent = `VIDEO UNLOCKS AT 0740 DEC 25 (${days}D ${pad(hours)}H)`;
+
+        if (trkBtn) trkBtn.className = 'px-4 py-2.5 rounded-xl bg-slate-900 border border-amber-500/50 text-amber-300 font-naval text-xs font-bold shadow-lg transition flex items-center gap-2';
+        if (trkIcon) trkIcon.className = 'fa-solid fa-lock';
+        if (trkLabel) trkLabel.textContent = '0740 Feed Locked';
+      }
+
+      syncTrackerPhaseUI();
+    }
+
+    function toggleCobAdminOverride() {
+      cobAdminOverride = !cobAdminOverride;
+      const lbl = document.getElementById('cob-override-label');
+      if (lbl) {
+        lbl.textContent = cobAdminOverride
+          ? 'Christmas Preview: ON (Countdown preview)'
+          : 'Christmas Preview: OFF (Strict 0740 Dec 25 Lock)';
+      }
+      updateCountdownAndLocks();
+      showToast(
+        cobAdminOverride
+          ? 'Christmas display preview enabled. The actual landing video still follows the Christmas release time.'
+          : 'Christmas display preview disabled.',
+        'info'
+      );
+    }
+
+    updateCountdownAndLocks();
+    setInterval(updateCountdownAndLocks, 1000);
+
+    // ---------------------------------------------------------------------
+    // 3. OPERATION: SILENT NIGHT — DATE-AWARE SANTA SONAR TRACKER
+    // ---------------------------------------------------------------------
+    let sonarPingRadius = 0;
+    let sonarSweepAngle = 0;
+    let sleighTrail = [];
+
+    function toggleSearchPreviewMode() {
+      searchPreviewMode = !searchPreviewMode;
+      const lbl = document.getElementById('preview-search-label');
+      if (lbl) {
+        lbl.textContent = searchPreviewMode ? 'Exit Search Preview' : 'Preview Search';
+      }
+      sleighTrail = [];
+      syncTrackerPhaseUI();
+      showToast(
+        searchPreviewMode
+          ? 'Previewing Christmas Eve / Christmas Day open-ocean search mode!'
+          : 'Returned to current calendar date tracking mode.',
+        'info'
+      );
+    }
+
+    function pingSonar() {
+      sonarPingRadius = 10;
+      showToast('Active sonar ping transmitted across North Atlantic search sector!', 'info');
+    }
+
+    function syncTrackerPhaseUI() {
+      const searching = isChristmasSearchWindow();
+      const lockStatus = document.getElementById('header-lock-status');
+      const hudTitle = document.getElementById('hud-contact-title');
+      const hudMode = document.getElementById('hud-bearing');
+      const badge = document.getElementById('distance-badge');
+      const speedEl = document.getElementById('telemetry-speed');
+      const bearingEl = document.getElementById('telemetry-bearing');
+      const reindeerEl = document.getElementById('telemetry-reindeer');
+      const phaseHeader = document.getElementById('phase-card-header');
+      const phaseBody = document.getElementById('phase-card-body');
+
+      if (searching) {
+        if (lockStatus) lockStatus.textContent = 'SEARCHING ATLANTIC';
+        if (hudTitle) hudTitle.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> SLEIGH-1: SEARCHING FOR SSBN-740';
+        if (hudMode) hudMode.textContent = 'OPEN-OCEAN SEARCH';
+        if (badge) {
+          badge.textContent = 'ACTIVE SEARCH';
+          badge.className = 'px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-naval text-[11px]';
+        }
+        if (speedEl) speedEl.textContent = 'MACH 2.4 SWEEP';
+        if (reindeerEl) reindeerEl.textContent = 'RUDOLPH SONAR ON';
+        if (phaseHeader) {
+          phaseHeader.innerHTML = '<i class="fa-solid fa-satellite-dish mr-1.5 text-emerald-400"></i> PHASE 2: NORTH ATLANTIC SEARCH';
+          phaseHeader.className = 'font-naval text-xs font-bold text-emerald-400 uppercase tracking-wider';
+        }
+        if (phaseBody) {
+          phaseBody.textContent = 'Sleigh-1 is airborne over the open North Atlantic sweeping back and forth with Rudolph’s nose scanning for the silent hull of USS Rhode Island (SSBN-740). No fixed target pin is plotted while the boat runs silent!';
+        }
+      } else {
+        if (lockStatus) lockStatus.textContent = 'NORTH POLE PREP';
+        if (hudTitle) hudTitle.innerHTML = '<span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span> SLEIGH-1: NORTH POLE PREP';
+        if (hudMode) hudMode.textContent = 'WORKSHOP STAGING';
+        if (badge) {
+          badge.textContent = 'PREP PHASE';
+          badge.className = 'px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-naval text-[11px]';
+        }
+        if (speedEl) speedEl.textContent = 'STAGED AT POLE';
+        if (bearingEl) bearingEl.textContent = 'STANDBY';
+        if (reindeerEl) reindeerEl.textContent = 'RESTING & FED';
+        if (phaseHeader) {
+          phaseHeader.innerHTML = '<i class="fa-solid fa-gifts mr-1.5"></i> PHASE 1: NORTH POLE PREPARATION';
+          phaseHeader.className = 'font-naval text-xs font-bold text-amber-400 uppercase tracking-wider';
+        }
+        if (phaseBody) {
+          phaseBody.textContent = 'Santa and the workshop elves are loading waterproofed gift sacks, checking sleigh runners, and calibrating Rudolph’s sonar-sync nose. Launch for the North Atlantic begins on Christmas Eve!';
+        }
+      }
+    }
+
+    (function initTrackerCanvas() {
+      const canvas = document.getElementById('tracker-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let t = 0;
+
+      function resizeTracker() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+      }
+      resizeTracker();
+      window.addEventListener('resize', resizeTracker);
+
+      function drawTracker() {
+        const w = canvas.width;
+        const h = canvas.height;
+        t += 0.015;
+        sonarSweepAngle = (sonarSweepAngle + 0.025) % (Math.PI * 2);
+
+        ctx.fillStyle = '#020814';
+        ctx.fillRect(0, 0, w, h);
+
+        // Tactical Latitude/Longitude Grid
+        ctx.strokeStyle = 'rgba(0, 255, 157, 0.09)';
+        ctx.lineWidth = 1;
+        const step = 48;
+        for (let x = 0; x < w; x += step) {
+          ctx.beginPath();
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, h);
+          ctx.stroke();
+        }
+        for (let y = 0; y < h; y += step) {
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(w, y);
+          ctx.stroke();
+        }
+
+        // Stylized North Atlantic / Arctic Coastline Silhouettes
+        ctx.fillStyle = 'rgba(15, 39, 68, 0.55)';
+        ctx.strokeStyle = 'rgba(56, 189, 248, 0.25)';
+        ctx.lineWidth = 1.5;
+
+        // Greenland / Arctic Ice Shelf
+        ctx.beginPath();
+        ctx.moveTo(w * 0.36, 0);
+        ctx.lineTo(w * 0.56, 0);
+        ctx.lineTo(w * 0.51, h * 0.24);
+        ctx.lineTo(w * 0.42, h * 0.28);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        // North America East Coast
+        ctx.beginPath();
+        ctx.moveTo(0, h * 0.25);
+        ctx.lineTo(w * 0.24, h * 0.34);
+        ctx.lineTo(w * 0.19, h * 0.58);
+        ctx.lineTo(w * 0.11, h * 0.85);
+        ctx.lineTo(0, h * 0.92);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        // Europe / UK Coastline
+        ctx.beginPath();
+        ctx.moveTo(w, h * 0.22);
+        ctx.lineTo(w * 0.82, h * 0.32);
+        ctx.lineTo(w * 0.78, h * 0.56);
+        ctx.lineTo(w * 0.88, h * 0.74);
+        ctx.lineTo(w, h * 0.78);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        // Center Radar Rings & Sweep
+        const cx = w * 0.5;
+        const cy = h * 0.52;
+        const maxR = Math.min(w, h) * 0.42;
+
+        for (let r = maxR * 0.33; r <= maxR; r += maxR * 0.33) {
+          ctx.beginPath();
+          ctx.arc(cx, cy, r, 0, Math.PI * 2);
+          ctx.strokeStyle = 'rgba(0, 255, 157, 0.16)';
+          ctx.stroke();
+        }
+
+        // Radar Sweep Cone
+        const grad = ctx.createRadialGradient(cx, cy, 5, cx, cy, maxR);
+        grad.addColorStop(0, 'rgba(0, 255, 157, 0.24)');
+        grad.addColorStop(1, 'rgba(0, 255, 157, 0)');
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, maxR, sonarSweepAngle - 0.38, sonarSweepAngle);
+        ctx.closePath();
+        ctx.fill();
+
+        // Active Sonar Ping Ring
+        if (sonarPingRadius > 0) {
+          sonarPingRadius += 4.5;
+          const alpha = Math.max(0, 1 - sonarPingRadius / (maxR * 1.3));
+          ctx.beginPath();
+          ctx.arc(cx, cy, sonarPingRadius, 0, Math.PI * 2);
+          ctx.strokeStyle = `rgba(0, 255, 157, ${alpha})`;
+          ctx.lineWidth = 2.5;
+          ctx.stroke();
+          if (alpha <= 0) sonarPingRadius = 0;
+        }
+
+        // Sleigh-1 Position
+        const searching = isChristmasSearchWindow();
+        let sx, sy, latVal, lonVal, headingDeg;
+
+        if (!searching) {
+          sx = w * 0.47 + Math.sin(t * 2) * 3;
+          sy = h * 0.11 + Math.cos(t * 2) * 2;
+          latVal = '90.00° N';
+          lonVal = '0.00° W';
+          headingDeg = 'STANDBY';
+        } else {
+          sx = w * 0.5 + Math.sin(t * 0.65) * (w * 0.24);
+          sy = h * 0.54 + Math.sin(t * 1.3) * (h * 0.21);
+          const latNum = (58 - ((sy / h) * 28)).toFixed(2);
+          const lonNum = (62 - ((sx / w) * 44)).toFixed(2);
+          latVal = `${latNum}° N`;
+          lonVal = `${lonNum}° W`;
+          headingDeg = `${Math.round(((Math.atan2(Math.cos(t * 1.3), Math.cos(t * 0.65)) * 180) / Math.PI + 360) % 360)}° TRUE`;
+
+          sleighTrail.push({ x: sx, y: sy });
+          if (sleighTrail.length > 45) sleighTrail.shift();
+        }
+
+        const latEl = document.getElementById('hud-lat');
+        const lonEl = document.getElementById('hud-lon');
+        const brgEl = document.getElementById('telemetry-bearing');
+        if (latEl) latEl.textContent = latVal;
+        if (lonEl) lonEl.textContent = lonVal;
+        if (brgEl && searching) brgEl.textContent = headingDeg;
+
+        if (searching && sleighTrail.length > 1) {
+          for (let i = 1; i < sleighTrail.length; i++) {
+            const alpha = (i / sleighTrail.length) * 0.55;
+            ctx.strokeStyle = `rgba(239, 68, 68, ${alpha})`;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(sleighTrail[i - 1].x, sleighTrail[i - 1].y);
+            ctx.lineTo(sleighTrail[i].x, sleighTrail[i].y);
+            ctx.stroke();
+          }
+        }
+
+        const pulse = 10 + Math.sin(t * 5) * 4;
+        ctx.beginPath();
+        ctx.arc(sx, sy, pulse, 0, Math.PI * 2);
+        ctx.fillStyle = searching ? 'rgba(239, 68, 68, 0.25)' : 'rgba(251, 191, 36, 0.25)';
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(sx, sy, 6, 0, Math.PI * 2);
+        ctx.fillStyle = searching ? '#ef4444' : '#fbbf24';
+        ctx.fill();
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        ctx.font = 'bold 11px Orbitron, sans-serif';
+        ctx.fillStyle = '#ffffff';
+        ctx.fillText(searching ? 'SLEIGH-1 (SEARCHING)' : 'NORTH POLE WORKSHOP', sx + 12, sy + 4);
+
+        requestAnimationFrame(drawTracker);
+      }
+      drawTracker();
+    })();
+
+    // ---------------------------------------------------------------------
+    // 4. PERISCOPE CINEMA & SANTA DECK RENDEZVOUS (AFT OF SAIL + HATCH)
+    // ---------------------------------------------------------------------
+    let cinemaAnimId = null;
+    let cinemaStartTime = 0;
+    let cinemaFireworks = [];
+
+    function triggerRendezvousSequence() {
+      if (!isDeckFeedUnlocked()) {
+        showToast(
+          'EYES ONLY: Santa Deck Rendezvous feed is time-locked until 0740 on Christmas morning (25 Dec)!',
+          'alert'
+        );
+        return;
+      }
+
+      const modal = document.getElementById('rendezvous-modal');
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      const frame = document.getElementById('landing-video-frame');
+      frame.src = frame.dataset.src;
+      frame.classList.remove('hidden');
+      document.getElementById('cinema-canvas').classList.add('hidden');
+      document.getElementById('periscope-reticle').classList.add('hidden');
+      document.getElementById('cinema-subtitle-wrapper').classList.add('hidden');
+      document.getElementById('cinema-phase-label').textContent = 'CHRISTMAS LANDING VIDEO';
+    }
+
+    function closeRendezvousModal() {
+      const modal = document.getElementById('rendezvous-modal');
+      const landing = document.getElementById('landing-video-frame');
+      if (landing) landing.removeAttribute('src');
+      if (cinemaAnimId) cancelAnimationFrame(cinemaAnimId);
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function launchFireworksBurst() {
+      const canvas = document.getElementById('cinema-canvas');
+      if (!canvas) return;
+      const colors = ['#ef4444', '#fbbf24', '#10b981', '#38bdf8', '#f472b6'];
+      for (let b = 0; b < 3; b++) {
+        const bx = canvas.width * (0.25 + Math.random() * 0.5);
+        const by = canvas.height * (0.15 + Math.random() * 0.25);
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        for (let p = 0; p < 28; p++) {
+          const angle = (Math.PI * 2 * p) / 28;
+          const speed = 1.5 + Math.random() * 3;
+          cinemaFireworks.push({
+            x: bx,
+            y: by,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            alpha: 1,
+            color
+          });
+        }
+      }
+    }
+
+    function replayRendezvous() {
+      const canvas = document.getElementById('cinema-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const rect = canvas.parentElement.getBoundingClientRect();
+      canvas.width = rect.width || 900;
+      canvas.height = rect.height || 506;
+
+      cinemaStartTime = performance.now();
+      cinemaFireworks = [];
+      let flaredOnce = false;
+
+      if (cinemaAnimId) cancelAnimationFrame(cinemaAnimId);
+
+      function renderCinemaFrame(now) {
+        const elapsed = (now - cinemaStartTime) / 1000;
+        const w = canvas.width;
+        const h = canvas.height;
+
+        const skyGrad = ctx.createLinearGradient(0, 0, 0, h * 0.72);
+        skyGrad.addColorStop(0, '#020617');
+        skyGrad.addColorStop(1, '#0c2442');
+        ctx.fillStyle = skyGrad;
+        ctx.fillRect(0, 0, w, h);
+
+        ctx.save();
+        ctx.globalAlpha = 0.28;
+        const auroraGrad = ctx.createLinearGradient(0, h * 0.08, w, h * 0.32);
+        auroraGrad.addColorStop(0, '#00ff9d');
+        auroraGrad.addColorStop(0.5, '#38bdf8');
+        auroraGrad.addColorStop(1, '#a855f7');
+        ctx.fillStyle = auroraGrad;
+        ctx.beginPath();
+        ctx.moveTo(0, h * 0.22);
+        for (let x = 0; x <= w; x += 40) {
+          ctx.lineTo(x, h * 0.18 + Math.sin(x * 0.01 + elapsed * 1.6) * 24);
+        }
+        ctx.lineTo(w, h * 0.32);
+        ctx.lineTo(0, h * 0.32);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+
+        const surfaceProgress = Math.min(1, elapsed / 3);
+        const subY = h * 0.78 - surfaceProgress * (h * 0.14);
+
+        ctx.fillStyle = '#0f172a';
+        ctx.strokeStyle = '#475569';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(w * 0.12, subY - 22, w * 0.76, 46, 22);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#1e293b';
+        ctx.beginPath();
+        ctx.roundRect(w * 0.56, subY - 78, w * 0.13, 58, 8);
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = '#fbbf24';
+        ctx.font = 'bold 12px Orbitron, sans-serif';
+        ctx.fillText('740', w * 0.605, subY - 44);
+
+        const hatchX = w * 0.44;
+        const hatchY = subY - 22;
+        ctx.fillStyle = '#334155';
+        ctx.fillRect(hatchX - 14, hatchY - 6, 28, 6);
+
+        if (elapsed > 3.5) {
+          const rise = Math.min(1, (elapsed - 3.5) / 2);
+          const chiefY = hatchY - rise * 26;
+          ctx.fillStyle = '#090d16';
+          ctx.fillRect(hatchX - 7, chiefY, 14, 24);
+          ctx.fillStyle = '#f1c27d';
+          ctx.beginPath();
+          ctx.arc(hatchX, chiefY - 6, 6, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = '#ffffff';
+          ctx.fillRect(hatchX - 8, chiefY - 13, 16, 4);
+        }
+
+        const landingProgress = Math.min(1, Math.max(0, (elapsed - 1.5) / 4));
+        const sleighX = w * 0.05 + landingProgress * (w * 0.25);
+        const sleighY = h * 0.16 + landingProgress * (subY - 36 - h * 0.16);
+
+        ctx.fillStyle = '#dc2626';
+        ctx.beginPath();
+        ctx.roundRect(sleighX - 24, sleighY - 12, 48, 16, 6);
+        ctx.fill();
+        ctx.strokeStyle = '#fbbf24';
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(sleighX - 28, sleighY + 8);
+        ctx.lineTo(sleighX + 30, sleighY + 8);
+        ctx.stroke();
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(sleighX - 4, sleighY - 18, 6, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#dc2626';
+        ctx.beginPath();
+        ctx.moveTo(sleighX - 10, sleighY - 21);
+        ctx.lineTo(sleighX + 2, sleighY - 21);
+        ctx.lineTo(sleighX - 4, sleighY - 31);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.fillStyle = 'rgba(7, 25, 48, 0.92)';
+        ctx.fillRect(0, h * 0.68, w, h * 0.32);
+
+        for (let i = cinemaFireworks.length - 1; i >= 0; i--) {
+          const p = cinemaFireworks[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.04;
+          p.alpha -= 0.015;
+          if (p.alpha <= 0) {
+            cinemaFireworks.splice(i, 1);
+            continue;
+          }
+          ctx.globalAlpha = p.alpha;
+          ctx.fillStyle = p.color;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+
+        const subEl = document.getElementById('cinema-subtitle');
+        const phaseEl = document.getElementById('cinema-phase-label');
+        if (elapsed < 3) {
+          if (phaseEl) phaseEl.textContent = '1/4 SURFACING';
+          if (subEl) subEl.textContent = '"North Atlantic Sector — USS Rhode Island (SSBN-740) surfaces beneath the Northern Lights..."';
+        } else if (elapsed < 5.5) {
+          if (phaseEl) phaseEl.textContent = '2/4 TOUCHDOWN AFT OF SAIL';
+          if (subEl) subEl.textContent = '"Sleigh-1 touches down smoothly on the open missile deck aft of the sail!"';
+        } else if (elapsed < 8) {
+          if (phaseEl) phaseEl.textContent = '3/4 TOPSIDE GREETING';
+          if (subEl) subEl.textContent = '"The Chief emerges through the circular missile-deck hatch to welcome Santa aboard SSBN-740!"';
+        } else {
+          if (phaseEl) phaseEl.textContent = '4/4 MERRY CHRISTMAS BLUE CREW';
+          if (subEl) subEl.textContent = '"Merry Christmas to the Blue Crew and Families of USS Rhode Island!"';
+          if (!flaredOnce) {
+            flaredOnce = true;
+            launchFireworksBurst();
+          }
+        }
+
+        cinemaAnimId = requestAnimationFrame(renderCinemaFrame);
+      }
+
+      cinemaAnimId = requestAnimationFrame(renderCinemaFrame);
+    }
+
+    // ---------------------------------------------------------------------
+    // 5. W-SSBN NORTH POLE FM (REAL FREE MP3 RADIO — ZERO SYNTH)
+    // ---------------------------------------------------------------------
+    let holidayTracks = [
+      {
+        title: 'Jingle Bells',
+        artist: 'Kevin MacLeod • Holiday Classics',
+        url: 'https://incompetech.com/music/royalty-free/mp3-royaltyfree/Jingle%20Bells.mp3',
+        source: 'CC-BY MP3'
+      },
+      {
+        title: 'We Wish You a Merry Christmas',
+        artist: 'Kevin MacLeod • Holiday Classics',
+        url: 'https://incompetech.com/music/royalty-free/mp3-royaltyfree/We%20Wish%20you%20a%20Merry%20Christmas.mp3',
+        source: 'CC-BY MP3'
+      },
+      {
+        title: 'Deck the Halls B',
+        artist: 'Kevin MacLeod • Holiday Classics',
+        url: 'https://incompetech.com/music/royalty-free/mp3-royaltyfree/Deck%20the%20Halls%20B.mp3',
+        source: 'CC-BY MP3'
+      },
+      {
+        title: 'Oh, Little Town of Bethlehem',
+        artist: 'Kevin MacLeod • Holiday Classics',
+        url: 'https://incompetech.com/music/royalty-free/mp3-royaltyfree/Oh,%20Little%20Town%20of%20Bethlehem.mp3',
+        source: 'CC-BY MP3'
+      },
+      {
+        title: 'What Child Is This',
+        artist: 'Kevin MacLeod • Holiday Classics',
+        url: 'https://incompetech.com/music/royalty-free/mp3-royaltyfree/What%20Child%20Is%20This.mp3',
+        source: 'CC-BY MP3'
+      }
+    ];
+
+    let currentTrackIndex = 0;
+    const audioPlayer = document.getElementById('holiday-audio-player');
+
+    function formatTime(secs) {
+      if (!isFinite(secs) || secs < 0) return '0:00';
+      const m = Math.floor(secs / 60);
+      const s = Math.floor(secs % 60);
+      return `${m}:${String(s).padStart(2, '0')}`;
+    }
+
+    function renderPlaylist() {
+      const container = document.getElementById('radio-playlist-container');
+      if (!container) return;
+      container.innerHTML = holidayTracks.map((trk, idx) => {
+        const active = idx === currentTrackIndex;
+        return `
+          <button onclick="selectTrack(${idx}, true)" class="w-full flex items-center justify-between px-3 py-2 rounded-xl border text-left transition ${
+            active
+              ? 'bg-emerald-500/15 border-emerald-400/50 text-white'
+              : 'bg-slate-900/70 border-slate-800/80 text-slate-300 hover:bg-slate-800/80'
+          }">
+            <div class="flex items-center gap-2.5 truncate">
+              <span class="font-naval text-[10px] ${active ? 'text-emerald-400 font-bold' : 'text-slate-500'}">0${idx + 1}</span>
+              <span class="truncate font-medium">${trk.title}</span>
+            </div>
+            <span class="text-[10px] font-naval px-2 py-0.5 rounded ${active ? 'bg-emerald-500/20 text-emerald-300' : 'bg-slate-800 text-slate-400'}">
+              ${active ? 'SELECTED' : trk.source}
+            </span>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function selectTrack(index, autoPlay = false) {
+      currentTrackIndex = (index + holidayTracks.length) % holidayTracks.length;
+      const track = holidayTracks[currentTrackIndex];
+      document.getElementById('current-track-title').textContent = track.title;
+      document.getElementById('current-track-artist').textContent = track.artist;
+      document.getElementById('audio-source-badge').textContent = track.source;
+      renderPlaylist();
+
+      if (audioPlayer) {
+        audioPlayer.src = track.url;
+        if (autoPlay) {
+          document.getElementById('stream-status-pill').textContent = 'BUFFERING MP3...';
+          audioPlayer.play().catch(() => {
+            document.getElementById('stream-status-pill').textContent = 'CLICK PLAY TO START';
+          });
+        }
+      }
+    }
+
+    function toggleRadioPlay() {
+      if (!audioPlayer) return;
+      if (!audioPlayer.src) {
+        selectTrack(currentTrackIndex, true);
+        return;
+      }
+      if (audioPlayer.paused) {
+        audioPlayer.play().catch(() => {
+          showToast('Stream blocked or unavailable — try loading local MP3s or skipping tracks.', 'alert');
+        });
+      } else {
+        audioPlayer.pause();
+      }
+    }
+
+    function nextTrack() {
+      selectTrack(currentTrackIndex + 1, !audioPlayer.paused);
+    }
+
+    function prevTrack() {
+      selectTrack(currentTrackIndex - 1, !audioPlayer.paused);
+    }
+
+    function seekAudio(val) {
+      if (!audioPlayer || !isFinite(audioPlayer.duration)) return;
+      audioPlayer.currentTime = (val / 100) * audioPlayer.duration;
+    }
+
+    function setAudioVolume(val) {
+      if (!audioPlayer) return;
+      audioPlayer.volume = parseFloat(val);
+    }
+
+    function handleLocalAudioUpload(event) {
+      const files = Array.from(event.target.files || []);
+      if (!files.length) return;
+      const added = files.map(f => ({
+        title: f.name.replace(/\.[^/.]+$/, ''),
+        artist: 'Local Holiday Audio File',
+        url: URL.createObjectURL(f),
+        source: 'LOCAL MP3'
+      }));
+      holidayTracks = [...added, ...holidayTracks];
+      selectTrack(0, true);
+      showToast(`Loaded ${added.length} local holiday track(s) into W-SSBN North Pole FM!`, 'success');
+    }
+
+    if (audioPlayer) {
+      audioPlayer.volume = 0.85;
+      audioPlayer.addEventListener('play', () => {
+        document.getElementById('radio-play-icon').className = 'fa-solid fa-pause';
+        document.getElementById('stream-status-pill').textContent = 'ON AIR • REAL MP3';
+        document.getElementById('stream-status-pill').className = 'px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-naval text-[9px] uppercase';
+      });
+      audioPlayer.addEventListener('pause', () => {
+        document.getElementById('radio-play-icon').className = 'fa-solid fa-play ml-0.5';
+        document.getElementById('stream-status-pill').textContent = 'PAUSED';
+      });
+      audioPlayer.addEventListener('timeupdate', () => {
+        const slider = document.getElementById('audio-progress-slider');
+        if (slider && isFinite(audioPlayer.duration) && audioPlayer.duration > 0) {
+          slider.value = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+        }
+        document.getElementById('audio-current-time').textContent = formatTime(audioPlayer.currentTime);
+        document.getElementById('audio-duration').textContent = formatTime(audioPlayer.duration);
+      });
+      audioPlayer.addEventListener('ended', () => nextTrack());
+      audioPlayer.addEventListener('error', () => {
+        document.getElementById('stream-status-pill').textContent = 'STREAM UNAVAILABLE';
+      });
+    }
+    selectTrack(0, false);
+
+    // ---------------------------------------------------------------------
+    // 6. HOLIDAY MESS DECKS TABS & 15-QUESTION SUBMARINE TRIVIA QUIZ
+    // ---------------------------------------------------------------------
+    const messDeckTabs = {
+      feast: `
+        <div class="bg-[#030813]/90 border border-white/10 rounded-2xl p-4 sm:p-5 space-y-2">
+          <div class="font-naval text-xs font-bold text-amber-300">CHRISTMAS MIDRATS &amp; PRIME RIB FEAST</div>
+          <p class="text-xs sm:text-sm text-slate-300/90 leading-relaxed">
+            Blue Crew Culinary Specialists (CSs) pull out all the stops on Christmas—serving prime rib, lobster tail, baked ham, eggnog, and midnight holiday sliders for watchstanders coming off the 0000–0600 midwatch.
+          </p>
+        </div>
+      `,
+      patrol: `
+        <div class="bg-[#030813]/90 border border-white/10 rounded-2xl p-4 sm:p-5 space-y-2">
+          <div class="font-naval text-xs font-bold text-emerald-400">SILENT SERVICE HOLIDAY TRADITIONS</div>
+          <p class="text-xs sm:text-sm text-slate-300/90 leading-relaxed">
+            From mini LED trees secured in the Control Room and Sonar Shack to "Halfway Night" skits, ugly sweater contests on the mess decks, and family greetings read over the 1MC, the Blue Crew keeps holiday spirit high under the sea.
+          </p>
+        </div>
+      `,
+      kingsbay: `
+        <div class="bg-[#030813]/90 border border-white/10 rounded-2xl p-4 sm:p-5 space-y-2">
+          <div class="font-naval text-xs font-bold text-sky-400">SUBASE KINGS BAY &amp; BLUE CREW OMBUDSMAN SUPPORT</div>
+          <p class="text-xs sm:text-sm text-slate-300/90 leading-relaxed">
+            Back home in St. Marys and Kings Bay, Georgia, the SSBN-740 Blue Crew Family Readiness Group and Ombudsman team host cookie swaps, holiday light tours, and care-package drives uniting our Blue Crew families.
+          </p>
+        </div>
+      `
+    };
+
+    function switchMessTab(tabKey) {
+      const content = document.getElementById('mess-tab-content');
+      if (content) content.innerHTML = messDeckTabs[tabKey] || messDeckTabs.feast;
+      ['feast', 'patrol', 'kingsbay'].forEach(k => {
+        const btn = document.getElementById(`tab-${k}`);
+        if (!btn) return;
+        btn.className = k === tabKey
+          ? 'px-2.5 py-1.5 rounded-lg text-xs font-bold bg-amber-400 text-slate-950 transition'
+          : 'px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition';
+      });
+    }
+    switchMessTab('feast');
+
+    const triviaDeck = [
+      {
+        category: 'SSBN-740 HERITAGE',
+        q: 'In addition to honoring the Ocean State, the USS Rhode Island (SSBN-740) commemorates which historic Revolutionary War battle fought in August 1778?',
+        options: ['The Battle of Bunker Hill', 'The Battle of Rhode Island', 'The Battle of Saratoga', 'The Battle of Yorktown'],
+        answer: 1,
+        fact: 'Fought on Aquidneck Island in August 1778, the Battle of Rhode Island was the first combined Franco-American military operation of the Revolutionary War!'
+      },
+      {
+        category: 'SSBN-740 HERITAGE',
+        q: 'The USS Rhode Island (SSBN-740) is which hull number in the U.S. Navy’s Ohio-class fleet of ballistic missile submarines?',
+        options: ['The 10th Ohio-class submarine', 'The 12th Ohio-class submarine', 'The 15th Ohio-class submarine', 'The 18th Ohio-class submarine'],
+        answer: 2,
+        fact: 'Out of 18 Ohio-class submarines built (SSBN-726 through SSBN-743), USS Rhode Island is the 15th boat in the class!'
+      },
+      {
+        category: 'SSBN-740 HERITAGE',
+        q: 'In what year was the USS Rhode Island (SSBN-740) officially commissioned into service with the United States Navy?',
+        options: ['1990', '1992', '1994', '1997'],
+        answer: 2,
+        fact: 'Built by General Dynamics Electric Boat in Groton, Connecticut, USS Rhode Island was commissioned on July 9, 1994.'
+      },
+      {
+        category: 'SSBN-740 HERITAGE',
+        q: 'Who served as the official ship’s sponsor who christened the USS Rhode Island (SSBN-740)?',
+        options: ['Barbara Bush', 'Kati Machtley', 'Elizabeth Dole', 'Rosalynn Carter'],
+        answer: 1,
+        fact: 'Kati Machtley christened SSBN-740 at Groton, Connecticut in July 1993.'
+      },
+      {
+        category: 'SSBN-740 HERITAGE',
+        q: 'Where is the USS Rhode Island (SSBN-740) homeported, and which submarine squadron does she belong to?',
+        options: ['Bangor, WA — CSS-17', 'Norfolk, VA — CSS-6', 'Kings Bay, GA — CSS-20', 'Groton, CT — CSS-4'],
+        answer: 2,
+        fact: 'SSBN-740 operates out of Naval Submarine Base Kings Bay, Georgia under Submarine Squadron 20.'
+      },
+      {
+        category: 'SUBMARINE LIFE',
+        q: 'Why do ballistic missile submarines like the USS Rhode Island operate with two separate crews?',
+        options: ['One drives while the other sleeps', 'To maximize strategic deterrent time at sea while giving crews training & family time', 'Reactors require two separate departments', 'One operates in summer, one in winter'],
+        answer: 1,
+        fact: 'The two-crew concept maximizes deterrent time at sea while giving each crew predictable off-crew training and family cycles.'
+      },
+      {
+        category: 'OHIO-CLASS SPECS',
+        q: 'How long is an Ohio-class ballistic missile submarine like the USS Rhode Island (SSBN-740)?',
+        options: ['360 feet', '450 feet', '560 feet (nearly two football fields)', '720 feet'],
+        answer: 2,
+        fact: 'At 560 feet long and displacing 18,750 tons submerged, Ohio-class boats are the largest submarines ever built for the U.S. Navy!'
+      },
+      {
+        category: 'SUBMARINE LIFE',
+        q: 'What is the famous late-night meal served in the mess decks around 2330 for sailors coming off or going on the midwatch?',
+        options: ['Sub-Supper', 'Midrats (Midnight Rations)', 'Depth-Charge Brunch', 'Watchstander’s Chow'],
+        answer: 1,
+        fact: 'Midrats keeps the midwatch running—especially when loaded with leftover holiday prime rib and fresh cookies!'
+      },
+      {
+        category: 'NORTH POLE OPS',
+        q: 'Which historic U.S. Navy submarine became the first watercraft to reach the geographic North Pole in August 1958?',
+        options: ['USS Triton (SSRN-586)', 'USS Nautilus (SSN-571)', 'USS Seawolf (SSN-575)', 'USS Skate (SSN-578)'],
+        answer: 1,
+        fact: 'During Operation Sunshine on August 3, 1958, USS Nautilus (SSN-571) transited submerged directly beneath the geographic North Pole!'
+      },
+      {
+        category: 'NORAD HISTORY',
+        q: 'What accidental event in 1955 started the tradition of tracking Santa Claus on radar?',
+        options: ['A sonar ping off Greenland', 'A misprinted department store newspaper ad phone number for CONAD', 'Santa filed an FAA flight plan', 'A pilot spotted Rudolph over Alaska'],
+        answer: 1,
+        fact: 'When kids dialed the misprinted CONAD hotline in Colorado Springs, Col. Harry Shoup had his radar operators give live Santa updates!'
+      },
+      {
+        category: 'HOLIDAY HISTORY',
+        q: 'Which classic Christmas song was the first song ever played in space by astronauts aboard Gemini 6A in December 1965?',
+        options: ['Silent Night', 'White Christmas', 'Jingle Bells', 'Frosty the Snowman'],
+        answer: 2,
+        fact: 'Astronauts Wally Schirra and Thomas Stafford smuggled a miniature harmonica and sleigh bells aboard Gemini 6A to play "Jingle Bells"!'
+      },
+      {
+        category: 'CHRISTMAS LORE',
+        q: 'Who created Rudolph the Red-Nosed Reindeer in 1939 as a holiday coloring book story for Montgomery Ward?',
+        options: ['Clement Clarke Moore', 'Robert L. May', 'Dr. Seuss', 'Gene Autry'],
+        answer: 1,
+        fact: 'Copywriter Robert L. May wrote Rudolph’s story in 1939, and his brother-in-law Johnny Marks later wrote the hit song!'
+      },
+      {
+        category: 'CHRISTMAS LORE',
+        q: 'Which of the following is NOT one of Santa’s original eight reindeer named in the 1823 poem "A Visit from St. Nicholas"?',
+        options: ['Blitzen', 'Vixen', 'Olive', 'Comet'],
+        answer: 2,
+        fact: '"Olive, the other reindeer" comes from a classic pun on "all of the other reindeer"!'
+      },
+      {
+        category: 'CHRISTMAS LORE',
+        q: 'In Charles Dickens’ A Christmas Carol, which spirit visits Ebenezer Scrooge second, after the Ghost of Christmas Past?',
+        options: ['Jacob Marley', 'The Ghost of Christmas Present', 'The Ghost of Christmas Yet to Come', 'Tiny Tim'],
+        answer: 1,
+        fact: 'Jacob Marley warns Scrooge first, followed by Christmas Past, Christmas Present, and Christmas Yet to Come!'
+      },
+      {
+        category: 'CHRISTMAS HISTORY',
+        q: 'Which U.S. President lit the very first National Christmas Tree outside the White House in 1923?',
+        options: ['Franklin D. Roosevelt', 'Theodore Roosevelt', 'Calvin Coolidge', 'Woodrow Wilson'],
+        answer: 2,
+        fact: 'On Christmas Eve 1923, President Calvin Coolidge lit a 48-foot balsam fir decorated with 2,500 electric bulbs.'
+      }
+    ];
+
+    let quizIndex = 0;
+    let quizScore = 0;
+    let quizAnswered = false;
+
+    function getQualRank(score) {
+      if (score >= 13) return 'QUAL: SANTA’S COB';
+      if (score >= 10) return 'QUAL: SUB DOLPHINS';
+      if (score >= 6) return 'QUAL: SILVER DOLPHINS';
+      if (score >= 3) return 'QUAL: SUB STRIKER';
+      return 'QUAL: SEAMAN';
+    }
+
+    function renderQuiz() {
+      const qObj = triviaDeck[quizIndex];
+      if (!qObj) return;
+      quizAnswered = false;
+
+      document.getElementById('quiz-category-badge').textContent = qObj.category;
+      document.getElementById('quiz-score-badge').textContent = `SCORE: ${quizScore} / ${triviaDeck.length}`;
+      document.getElementById('quiz-rank-badge').textContent = getQualRank(quizScore);
+      document.getElementById('quiz-question').textContent = `Q${quizIndex + 1}/${triviaDeck.length}: ${qObj.q}`;
+      document.getElementById('quiz-feedback').textContent = 'Select an answer to earn your Dolphin Badge!';
+
+      const optsContainer = document.getElementById('quiz-options');
+      optsContainer.innerHTML = qObj.options.map((opt, idx) => `
+        <button onclick="selectQuizAnswer(${idx})" class="quiz-opt-btn text-left px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs text-slate-200 transition">
+          <span class="font-naval text-yellow-400 mr-1.5">${String.fromCharCode(65 + idx)})</span> ${opt}
+        </button>
+      `).join('');
+    }
+
+    function selectQuizAnswer(selectedIdx) {
+      if (quizAnswered) return;
+      quizAnswered = true;
+      const qObj = triviaDeck[quizIndex];
+      const buttons = document.querySelectorAll('.quiz-opt-btn');
+
+      buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        if (idx === qObj.answer) {
+          btn.className = 'quiz-opt-btn text-left px-3 py-2 rounded-xl bg-emerald-500/25 border border-emerald-400 text-emerald-200 text-xs font-semibold';
+        } else if (idx === selectedIdx) {
+          btn.className = 'quiz-opt-btn text-left px-3 py-2 rounded-xl bg-red-500/25 border border-red-400 text-red-200 text-xs';
+        }
+      });
+
+      const feedbackEl = document.getElementById('quiz-feedback');
+      if (selectedIdx === qObj.answer) {
+        quizScore++;
+        document.getElementById('quiz-score-badge').textContent = `SCORE: ${quizScore} / ${triviaDeck.length}`;
+        document.getElementById('quiz-rank-badge').textContent = getQualRank(quizScore);
+        feedbackEl.innerHTML = `<span class="text-emerald-400 font-bold">Correct!</span> ${qObj.fact}`;
+      } else {
+        feedbackEl.innerHTML = `<span class="text-red-400 font-bold">Not quite!</span> ${qObj.fact}`;
+      }
+    }
+
+    function nextQuizQuestion() {
+      quizIndex = (quizIndex + 1) % triviaDeck.length;
+      renderQuiz();
+    }
+
+    function resetQuiz() {
+      quizIndex = 0;
+      quizScore = 0;
+      renderQuiz();
+      showToast('Submarine & Christmas Trivia reset to Question 1!', 'info');
+    }
+
+    renderQuiz();
+
+  </script>
+
+
+</body>
+</html>
